@@ -15,7 +15,7 @@ Redshift's query executor interprets a high-level operator tree at runtime. Each
 
 The real killer? **Cold starts.** The first query after a cluster spin-up had to warm the JIT cache from scratch, serializing all the overhead into a single user-visible delay.
 
-## Enter LLVM
+## Enter LLVM IR
 
 The idea: instead of interpreting the operator tree, **compile it to native machine code** using LLVM IR at query planning time.
 
