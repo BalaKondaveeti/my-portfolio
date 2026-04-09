@@ -128,15 +128,17 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* CTA buttons */}
+            {/* CTA buttons — icon only for social, label for contact */}
             <div className="flex flex-wrap gap-3">
-              {/* GitHub — white */}
+              {/* GitHub — white icon */}
               <a
-                href="https://github.com/balakondaveeti"
+                href="https://github.com/BalaKondaveeti"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 font-mono text-sm px-4 py-2.5 rounded transition-all duration-200"
+                title="GitHub"
+                className="flex items-center justify-center rounded transition-all duration-200"
                 style={{
+                  width: 40, height: 40,
                   background: 'rgba(255,255,255,0.06)',
                   border: '1px solid rgba(255,255,255,0.2)',
                   color: '#ffffff',
@@ -144,7 +146,7 @@ export default function Hero() {
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLAnchorElement
-                  el.style.background = 'rgba(255,255,255,0.12)'
+                  el.style.background = 'rgba(255,255,255,0.14)'
                   el.style.borderColor = 'rgba(255,255,255,0.4)'
                 }}
                 onMouseLeave={e => {
@@ -153,17 +155,18 @@ export default function Hero() {
                   el.style.borderColor = 'rgba(255,255,255,0.2)'
                 }}
               >
-                <FiGithub size={15} />
-                GitHub
+                <FiGithub size={17} />
               </a>
 
-              {/* LinkedIn — blue */}
+              {/* LinkedIn — blue icon */}
               <a
                 href="https://www.linkedin.com/in/bala-subramanyam/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 font-mono text-sm px-4 py-2.5 rounded transition-all duration-200"
+                title="LinkedIn"
+                className="flex items-center justify-center rounded transition-all duration-200"
                 style={{
+                  width: 40, height: 40,
                   background: 'rgba(0,212,255,0.06)',
                   border: '1px solid rgba(0,212,255,0.3)',
                   color: '#00d4ff',
@@ -171,8 +174,8 @@ export default function Hero() {
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLAnchorElement
-                  el.style.background = 'rgba(0,212,255,0.14)'
-                  el.style.boxShadow = '0 0 14px rgba(0,212,255,0.18)'
+                  el.style.background = 'rgba(0,212,255,0.16)'
+                  el.style.boxShadow = '0 0 14px rgba(0,212,255,0.2)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLAnchorElement
@@ -180,15 +183,16 @@ export default function Hero() {
                   el.style.boxShadow = 'none'
                 }}
               >
-                <FiLinkedin size={15} />
-                LinkedIn
+                <FiLinkedin size={17} />
               </a>
 
-              {/* Blogs — green */}
+              {/* Blogs — green icon */}
               <button
-                onClick={() => navigate('/blogs')}
-                className="flex items-center gap-2 font-mono text-sm px-4 py-2.5 rounded transition-all duration-200"
+                onClick={() => navigate('/my_blogs')}
+                title="Blogs"
+                className="flex items-center justify-center rounded transition-all duration-200"
                 style={{
+                  width: 40, height: 40,
                   background: 'rgba(0,255,65,0.06)',
                   border: '1px solid rgba(0,255,65,0.3)',
                   color: '#00ff41',
@@ -196,8 +200,8 @@ export default function Hero() {
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLButtonElement
-                  el.style.background = 'rgba(0,255,65,0.14)'
-                  el.style.boxShadow = '0 0 14px rgba(0,255,65,0.18)'
+                  el.style.background = 'rgba(0,255,65,0.16)'
+                  el.style.boxShadow = '0 0 14px rgba(0,255,65,0.2)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLButtonElement
@@ -205,11 +209,10 @@ export default function Hero() {
                   el.style.boxShadow = 'none'
                 }}
               >
-                <FiBookOpen size={15} />
-                Blogs
+                <FiBookOpen size={17} />
               </button>
 
-              {/* Contact — green */}
+              {/* Contact — labeled */}
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="flex items-center gap-2 font-mono text-sm px-4 py-2.5 rounded transition-all duration-200"

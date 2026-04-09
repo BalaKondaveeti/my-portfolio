@@ -16,11 +16,7 @@ const BOOT_LINES = [
   { text: '> SYSTEM BOOT COMPLETE. Welcome.', delay: 1540 },
 ]
 
-interface BootSequenceProps {
-  onDone: () => void
-}
-
-export default function BootSequence({ onDone }: BootSequenceProps) {
+export default function BootSequence() {
   const [visibleLines, setVisibleLines] = useState<number[]>([])
   const [done, setDone] = useState(false)
 
@@ -34,14 +30,11 @@ export default function BootSequence({ onDone }: BootSequenceProps) {
       timers.push(t)
     })
 
-    const endTimer = setTimeout(() => {
-      setDone(true)
-      setTimeout(onDone, 600)
-    }, 2400)
+    const endTimer = setTimeout(() => setDone(true), 2100)
     timers.push(endTimer)
 
     return () => timers.forEach(clearTimeout)
-  }, [onDone])
+  }, [])
 
   return (
     <AnimatePresence>

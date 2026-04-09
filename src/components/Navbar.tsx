@@ -5,8 +5,8 @@ import { motion } from 'framer-motion'
 const NAV_LINKS = [
   { label: 'experience', href: '/#experience' },
   { label: 'projects',   href: '/#projects' },
-  { label: 'blogs',      href: '/blogs' },
-  { label: 'contact',   href: '/#contact' },
+  { label: 'my_blogs',   href: '/my_blogs' },
+  { label: 'contact',    href: '/#contact' },
 ]
 
 export default function Navbar() {
@@ -75,7 +75,7 @@ export default function Navbar() {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map(link => {
-            const isActive = link.href === '/blogs' && location.pathname.startsWith('/blogs')
+            const isActive = link.href === '/my_blogs' && location.pathname.startsWith('/my_blogs')
             return (
               <button
                 key={link.label}

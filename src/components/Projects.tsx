@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiGithub, FiStar, FiGitBranch, FiExternalLink } from 'react-icons/fi'
 
-const GITHUB_USERNAME = 'balakondaveeti'
+const GITHUB_USERNAME = 'BalaKondaveeti'
 
 interface GHRepo {
   id: number
@@ -25,6 +25,20 @@ const LANG_COLORS: Record<string, string> = {
   Rust: '#dea584',
 }
 
+// Deterministic color per topic string
+function topicStyle(topic: string): React.CSSProperties {
+  let hash = 0
+  for (let i = 0; i < topic.length; i++) {
+    hash = (hash * 31 + topic.charCodeAt(i)) & 0xffff
+  }
+  const hue = hash % 360
+  return {
+    color: `hsl(${hue}, 75%, 72%)`,
+    background: `hsla(${hue}, 75%, 50%, 0.08)`,
+    border: `1px solid hsla(${hue}, 75%, 50%, 0.25)`,
+  }
+}
+
 export default function Projects() {
   const [repos, setRepos] = useState<GHRepo[]>([])
   const [loading, setLoading] = useState(true)
@@ -37,7 +51,8 @@ export default function Projects() {
         return r.json()
       })
       .then((data: GHRepo[]) => {
-        setRepos(data.filter(r => !r.name.includes('.')).slice(0, 6))
+        const SKIP = new Set(['my-portfolio', 'SDM-landing-page', 'bdnv.online'])
+        setRepos(data.filter(r => !r.name.includes('.') && !SKIP.has(r.name)).slice(0, 6))
         setLoading(false)
       })
       .catch(() => {
@@ -77,7 +92,7 @@ export default function Projects() {
 
         {error && (
           <p className="font-mono text-sm" style={{ color: '#ff4444' }}>
-            ✗ GitHub API unreachable. Check rate limits or set GITHUB_USERNAME.
+            ✗ GitHub API unreachable. Check rate limits.
           </p>
         )}
 
@@ -100,8 +115,8 @@ export default function Projects() {
                   <div className="flex items-center gap-2">
                     <FiGithub size={14} style={{ color: '#555' }} />
                     <span
-                      className="font-mono text-sm font-medium"
-                      style={{ color: '#e8e8e8', transition: 'color 0.2s' }}
+                      className="font-mono text-sm font-medium transition-colors duration-200"
+                      style={{ color: '#e8e8e8' }}
                       onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = '#00ff41')}
                       onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = '#e8e8e8')}
                     >
@@ -115,17 +130,20 @@ export default function Projects() {
                   {repo.description || 'No description.'}
                 </p>
 
-                <div className="flex flex-wrap gap-1 mb-1">
-                  {(repo.topics || []).slice(0, 4).map(t => (
-                    <span
-                      key={t}
-                      className="font-mono text-xs px-1.5 py-0.5 rounded"
-                      style={{ background: '#1a1a1a', color: '#555', border: '1px solid #1f1f1f' }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                {/* Colored topics */}
+                {(repo.topics || []).length > 0 && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {repo.topics.slice(0, 5).map(t => (
+                      <span
+                        key={t}
+                        className="font-mono text-xs px-2 py-0.5 rounded"
+                        style={topicStyle(t)}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 <div className="flex items-center gap-4 pt-2" style={{ borderTop: '1px solid #1a1a1a' }}>
                   {repo.language && (

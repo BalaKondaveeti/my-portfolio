@@ -39,7 +39,7 @@ export default function BlogPost() {
     return { raw, meta: parseFrontmatter(raw) }
   }, [slug])
 
-  if (!raw || !meta) return <Navigate to="/blogs" replace />
+  if (!raw || !meta) return <Navigate to="/my_blogs" replace />
 
   const content = stripFrontmatter(raw)
 
@@ -52,7 +52,7 @@ export default function BlogPost() {
           transition={{ duration: 0.5 }}
         >
           <Link
-            to="/blogs"
+            to="/my_blogs"
             className="inline-flex items-center gap-2 font-mono text-xs mb-8"
             style={{ color: '#555', textDecoration: 'none' }}
             onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#00ff41')}
@@ -102,7 +102,7 @@ export default function BlogPost() {
             style={{ borderTop: '1px solid #1a1a1a' }}
           >
             <Link
-              to="/blogs"
+              to="/my_blogs"
               className="font-mono text-sm"
               style={{ color: '#555', textDecoration: 'none' }}
               onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#00ff41')}

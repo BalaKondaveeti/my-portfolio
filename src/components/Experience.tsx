@@ -46,6 +46,28 @@ const JOBS = [
       'Engineered full-stack EHR microservices using Java, Kafka, and React on Oracle Cloud.',
     ],
   },
+  {
+    title: 'IoT & Mobile App Developer',
+    company: 'BDD Startup (acq. by Sedin Technologies)',
+    period: 'Pre-2022',
+    stack: ['IoT', 'Mobile', 'Java', 'Android', 'ERP'],
+    color: '#ff6b35',
+    bullets: [
+      'Built enterprise IoT and mobile application solutions for clients as part of a startup later acquired by Sedin Technologies.',
+      'Led development of "Nabard" — a complete end-to-end ERP system covering procurement, inventory, HR, and reporting modules.',
+    ],
+  },
+  {
+    title: 'Mobile App Developer',
+    company: 'Nation Rise (Independent)',
+    period: 'Side Project',
+    stack: ['Android', 'Java', 'Mobile', 'App Store'],
+    color: '#a855f7',
+    bullets: [
+      'Independently developed and published mobile applications on app stores under the Nation Rise developer account.',
+      'Built for fun — exploring mobile UX, native APIs, and app store publishing end-to-end.',
+    ],
+  },
 ]
 
 export default function Experience() {
@@ -73,7 +95,7 @@ export default function Experience() {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Company tabs */}
-          <div className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible lg:w-56 shrink-0">
+          <div className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-x-visible lg:w-60 shrink-0">
             {JOBS.map((job, i) => (
               <button
                 key={i}
@@ -87,7 +109,7 @@ export default function Experience() {
                   cursor: 'pointer',
                 }}
               >
-                {job.company.split('—')[0].trim()}
+                {job.company.split('(')[0].split('—')[0].trim()}
               </button>
             ))}
           </div>
@@ -114,11 +136,7 @@ export default function Experience() {
               </div>
               <span
                 className="font-mono text-xs px-3 py-1 rounded"
-                style={{
-                  border: '1px solid #2a2a2a',
-                  color: '#666',
-                  background: '#0d0d0d',
-                }}
+                style={{ border: '1px solid #2a2a2a', color: '#666', background: '#0d0d0d' }}
               >
                 {JOBS[active].period}
               </span>

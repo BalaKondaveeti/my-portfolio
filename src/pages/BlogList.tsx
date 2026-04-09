@@ -55,31 +55,24 @@ export default function BlogList() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="font-mono text-sm mb-2" style={{ color: '#00ff41' }}>
-            $ ls ./blogs
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 font-mono text-xs mb-8"
+            style={{ color: '#555', textDecoration: 'none' }}
+            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#00ff41')}
+            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#555')}
+          >
+            ← cd ~/home
+          </Link>
+          <p className="font-mono text-sm mb-2 mt-2" style={{ color: '#00ff41' }}>
+            $ ls ./my_blogs
           </p>
           <h1
-            className="font-mono font-bold mb-3"
+            className="font-mono font-bold mb-10"
             style={{ fontSize: 'clamp(1.6rem, 4vw, 2.5rem)', color: '#e8e8e8' }}
           >
             Terminal Blog
           </h1>
-          <p className="mb-12" style={{ color: '#555', fontSize: '0.875rem' }}>
-            {posts.length} post{posts.length !== 1 ? 's' : ''} — drop .md files in{' '}
-            <code
-              className="font-mono"
-              style={{
-                background: '#111',
-                border: '1px solid #222',
-                padding: '1px 6px',
-                borderRadius: 4,
-                color: '#00d4ff',
-                fontSize: '0.8rem',
-              }}
-            >
-              src/content/blogs/
-            </code>
-          </p>
         </motion.div>
 
         <div className="space-y-4">
@@ -91,7 +84,7 @@ export default function BlogList() {
               transition={{ duration: 0.3, delay: i * 0.08 }}
             >
               <Link
-                to={`/blogs/${post.slug}`}
+                to={`/my_blogs/${post.slug}`}
                 className="card rounded-xl p-6 block group"
                 style={{ textDecoration: 'none' }}
               >

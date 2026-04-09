@@ -1,31 +1,31 @@
-import { useState, useCallback, lazy, Suspense } from 'react'
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import BootSequence from './components/BootSequence'
 import Navbar from './components/Navbar'
 
-const Home     = lazy(() => import('./pages/Home'))
-const BlogList = lazy(() => import('./pages/BlogList'))
-const BlogPost = lazy(() => import('./pages/BlogPost'))
+// Preload all chunks at module init so they're ready before boot ends
+const homeImport     = import('./pages/Home')
+const blogListImport = import('./pages/BlogList')
+const blogPostImport = import('./pages/BlogPost')
+
+const Home     = lazy(() => homeImport)
+const BlogList = lazy(() => blogListImport)
+const BlogPost = lazy(() => blogPostImport)
 
 export default function App() {
-  const [booted, setBooted] = useState(false)
-  const handleBootDone = useCallback(() => setBooted(true), [])
-
+  // Render content immediately behind the boot overlay (z-50).
+  // By the time boot finishes, chunks are already loaded → zero wait.
   return (
     <BrowserRouter>
-      <BootSequence onDone={handleBootDone} />
-      {booted && (
-        <>
-          <Navbar />
-          <Suspense fallback={null}>
-            <Routes>
-              <Route path="/"            element={<Home />} />
-              <Route path="/blogs"       element={<BlogList />} />
-              <Route path="/blogs/:slug" element={<BlogPost />} />
-            </Routes>
-          </Suspense>
-        </>
-      )}
+      <BootSequence />
+      <Navbar />
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/"                element={<Home />} />
+          <Route path="/my_blogs"        element={<BlogList />} />
+          <Route path="/my_blogs/:slug"  element={<BlogPost />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }
