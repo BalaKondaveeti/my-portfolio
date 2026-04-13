@@ -96,16 +96,20 @@ export default function Hero() {
               className="font-mono mb-6"
               style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: '#00d4ff' }}
             >
-              4 YOE · Distributed Systems · Database Internals · Full Stack
+              Distributed Systems · Database Internals · Low Level · Full Stack
             </p>
 
             <p
               className="mb-8 max-w-2xl leading-relaxed"
               style={{ color: '#999', fontSize: '0.95rem' }}
             >
-              Building systems that cut P90 latency by 99.6%, process 50k+ segments/sec across
-              34 AWS regions, and scale to zero. Full stack across{' '}
-              <span style={{ color: '#e8e8e8' }}>C++, Python, Java, TypeScript, React, FastAPI</span>.
+              Working close to the metal —{' '}
+              <span style={{ color: '#e8e8e8' }}>LLVM IR, C++ compiler internals, CPU cache behavior,
+              precompiled headers, and instruction-level optimizations</span>.
+              That hardware-aware foundation drives the performance gains:{' '}
+              <span style={{ color: '#00ff41' }}>99.6% P90 latency reduction</span>, 50k+ compiled
+              segments/sec across 34 AWS regions, 83% fewer fleet-wide failures. Full stack when
+              needed — <span style={{ color: '#e8e8e8' }}>C++, Python, Java, TypeScript, React, FastAPI</span>.
               Previously at{' '}
               <span style={{ color: '#e8e8e8' }}>AWS Redshift</span> &{' '}
               <span style={{ color: '#e8e8e8' }}>Amazon Robotics</span>.
