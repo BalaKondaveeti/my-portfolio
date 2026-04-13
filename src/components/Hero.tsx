@@ -103,9 +103,9 @@ export default function Hero() {
               className="mb-8 max-w-2xl leading-relaxed"
               style={{ color: '#999', fontSize: '0.95rem' }}
             >
-              Working close to the metal —{' '}
-              <span style={{ color: '#e8e8e8' }}>LLVM IR, C++ compiler internals, CPU cache behavior,
-              precompiled headers, and instruction-level optimizations</span>.
+              Working close to the metal {' '}
+              <span style={{ color: '#e8e8e8' }}>C++, Robotics, LLVM, CPU cache,
+              and instruction-level optimizations</span>.
               That hardware-aware foundation drives the performance gains:{' '}
               <span style={{ color: '#00ff41' }}>99.6% P90 latency reduction</span>, 50k+ compiled
               segments/sec across 34 AWS regions, 83% fewer fleet-wide failures. Full stack when
