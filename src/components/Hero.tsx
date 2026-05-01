@@ -4,7 +4,7 @@ import MatrixCanvas from './MatrixCanvas'
 import { FiGithub, FiLinkedin, FiBookOpen, FiMail } from 'react-icons/fi'
 
 const PROFILE_IMG =
-  'https://media.licdn.com/dms/image/v2/D5603AQH0dnjNggFClw/profile-displayphoto-scale_400_400/B56Z0od7HQK8Ag-/0/1774500427539?e=1777507200&v=beta&t=2dfsKvLk_6Mx3vcDSRuo-ATejS62ulW86hOUQtnozsw'
+  'https://media.licdn.com/dms/image/v2/D5603AQEjUQrhb3yzAg/profile-displayphoto-crop_800_800/B56Z3VouRLJ4AI-/0/1777405719788?e=1779321600&v=beta&t=CeDr4zn7ZibkL-wUeYiFt9M4UPRZV6lKXq56AN0o77o'
 
 const TAGS = [
   'Distributed Systems',
