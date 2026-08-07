@@ -164,7 +164,7 @@ export default function Hero() {
 
               {/* LinkedIn — blue icon */}
               <a
-                href="https://www.linkedin.com/in/bala-subramanyam/"
+                href="https://www.linkedin.com/in/bala-subram/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn"
