@@ -10,7 +10,7 @@ export default function MatrixCanvas() {
     if (!ctx) return
 
     const FONT_SIZE = 13
-    const COLOR = '#6bff95'
+    const COLOR = '#8dffb0'
     const CHARS = '01アイウエオカキクケコサシスセソタチツテトナニヌネノ'
 
     let cols: number[]
@@ -59,7 +59,7 @@ export default function MatrixCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full opacity-50 pointer-events-none"
+      className="absolute inset-0 w-full h-full opacity-70 pointer-events-none"
       style={{ display: 'block' }}
     />
   )

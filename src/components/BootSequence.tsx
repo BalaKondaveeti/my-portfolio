@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+const SPEED = 2
+
 const BOOT_LINES = [
   { text: '> BIOS v2.4.1 initializing...', delay: 0 },
   { text: '> CPU: Systems Engineer [4 cores @ ∞ GHz]', delay: 120 },
@@ -26,11 +28,11 @@ export default function BootSequence() {
     BOOT_LINES.forEach((line, i) => {
       const t = setTimeout(() => {
         setVisibleLines(prev => [...prev, i])
-      }, line.delay)
+      }, line.delay / SPEED)
       timers.push(t)
     })
 
-    const endTimer = setTimeout(() => setDone(true), 2100)
+    const endTimer = setTimeout(() => setDone(true), 2100 / SPEED)
     timers.push(endTimer)
 
     return () => timers.forEach(clearTimeout)
@@ -42,7 +44,7 @@ export default function BootSequence() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5 / SPEED }}
           className="fixed inset-0 z-50 flex items-center justify-center"
           style={{ background: '#0a0a0a' }}
         >
@@ -59,7 +61,7 @@ export default function BootSequence() {
                   key={i}
                   initial={{ opacity: 0, x: -10 }}
                   animate={visibleLines.includes(i) ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.15 }}
+                  transition={{ duration: 0.15 / SPEED }}
                   className="text-sm"
                   style={{
                     color: line.text.includes('OPTIMIZED') || line.text.includes('COMPLETE')
