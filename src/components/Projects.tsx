@@ -65,10 +65,10 @@ export default function Projects() {
     <section id="projects" className="py-24" style={{ background: '#0a0a0a' }}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.2 }}
         >
           <p className="font-mono text-sm mb-2" style={{ color: '#00ff41' }}>
             $ git log --oneline ./projects
@@ -104,10 +104,10 @@ export default function Projects() {
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.06 }}
+                transition={{ duration: 0.15, delay: i * 0.025 }}
                 className="card rounded-xl p-5 flex flex-col gap-3 group"
                 style={{ textDecoration: 'none' }}
               >

@@ -56,10 +56,10 @@ export default function Contact() {
     <section id="contact" className="py-24" style={{ background: '#0d0d0d' }}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.2 }}
         >
           <p className="font-mono text-sm mb-2" style={{ color: '#00ff41' }}>
             $ ping bala
@@ -78,10 +78,10 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* Info */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -12 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.2 }}
             className="space-y-6"
           >
             {INFO.map(item => (
@@ -98,10 +98,10 @@ export default function Contact() {
 
           {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 12 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.2, delay: 0.04 }}
             className="card rounded-xl p-7"
           >
             {/* Terminal header */}

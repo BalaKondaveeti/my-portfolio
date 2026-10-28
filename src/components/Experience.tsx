@@ -77,10 +77,10 @@ export default function Experience() {
     <section id="experience" className="py-24" style={{ background: '#0d0d0d' }}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.2 }}
         >
           <p className="font-mono text-sm mb-2" style={{ color: '#00ff41' }}>
             $ cat experience.log
