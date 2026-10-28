@@ -2,9 +2,7 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import MatrixCanvas from './MatrixCanvas'
 import { FiGithub, FiLinkedin, FiBookOpen, FiMail } from 'react-icons/fi'
-
-const PROFILE_IMG =
-  'https://i.pinimg.com/236x/2f/fe/89/2ffe89badd3043dd3ec899d0e1ac6933.jpg'
+import PROFILE_IMG from '../assets/profile.jpg'
 
 const TAGS = [
   'Distributed Systems',
@@ -54,7 +52,7 @@ export default function Hero() {
                 src={PROFILE_IMG}
                 alt="Bala Kondaveeti"
                 className="rounded-full object-cover"
-                style={{ width: 160, height: 160, display: 'block', background: '#0a0a0a' }}
+                style={{ width: 160, height: 160, display: 'block', background: '#0a0a0a', objectPosition: 'center 30%' }}
                 loading="eager"
               />
             </div>
@@ -74,11 +72,20 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Text */}
+          {/* Text — on a see-through panel so the rain stays visible but never fights the words */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
+            className="w-full md:w-auto rounded-xl"
+            style={{
+              background: 'rgba(10,10,10,0.55)',
+              backdropFilter: 'blur(6px)',
+              WebkitBackdropFilter: 'blur(6px)',
+              border: '1px solid rgba(0,255,65,0.18)',
+              boxShadow: '0 8px 40px rgba(0,0,0,0.45)',
+              padding: 'clamp(20px, 4vw, 36px)',
+            }}
           >
             <p className="font-mono text-sm mb-3" style={{ color: '#00ff41' }}>
               $ whoami
